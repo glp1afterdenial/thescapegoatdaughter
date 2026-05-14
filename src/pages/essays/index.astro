@@ -1,0 +1,35 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const essays = (await getCollection('essays'))
+  .filter((e) => !e.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Base title="Essays" description="All essays on complex trauma, family dynamics, and healing.">
+  <h1>Essays</h1>
+  {essays.length > 0 ? (
+    <ul class="essay-list" style="margin-top: 2rem;">
+      {essays.map((essay) => (
+        <li class="essay-item">
+          <a href={`/essays/${essay.id}`}>
+            <div class="essay-title">{essay.data.title}</div>
+            <div class="essay-date">
+              {essay.data.date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
+            </div>
+            {essay.data.description && (
+              <div class="essay-description">{essay.data.description}</div>
+            )}
+          </a>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p style="margin-top: 2rem;">Essays coming soon.</p>
+  )}
+</Base>
