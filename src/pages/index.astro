@@ -1,41 +1,15 @@
 ---
 import Base from '../layouts/Base.astro';
-import { getCollection } from 'astro:content';
-
-const essays = (await getCollection('essays'))
-  .filter((e) => !e.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<Base title="The Scapegoat Daughter">
-  <section class="home-intro">
-    <h1>The Scapegoat Daughter</h1>
-    <p class="home-tagline">
-      Essays on complex trauma, family dynamics, and the long road to finding your own truth.
+<Base title="The Scapegoat Daughter" splash={true}>
+  <div class="splash">
+    <h1 class="splash-title">The Scapegoat<br />Daughter</h1>
+    <div class="splash-line"></div>
+    <p class="splash-tagline">
+      Writing from inside the work.<br />
+      Complex trauma. Family dynamics. The truth.
     </p>
-  </section>
-
-  {essays.length > 0 ? (
-    <ul class="essay-list">
-      {essays.map((essay) => (
-        <li class="essay-item">
-          <a href={`/essays/${essay.id}`}>
-            <div class="essay-title">{essay.data.title}</div>
-            <div class="essay-date">
-              {essay.data.date.toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-              })}
-            </div>
-            {essay.data.description && (
-              <div class="essay-description">{essay.data.description}</div>
-            )}
-          </a>
-        </li>
-      ))}
-    </ul>
-  ) : (
-    <p>Essays coming soon.</p>
-  )}
+    <a href="/journal" class="splash-enter">Enter</a>
+  </div>
 </Base>

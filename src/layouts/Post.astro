@@ -9,7 +9,6 @@ interface Props {
 
 const { title, date, description } = Astro.props;
 
-// Estimate reading time from the raw slot content
 const html = await Astro.slots.render('default');
 const words = html.replace(/<[^>]*>/g, '').split(/\s+/).length;
 const readingTime = Math.max(1, Math.round(words / 230));
@@ -26,5 +25,5 @@ const readingTime = Math.max(1, Math.round(words / 230));
     </p>
     <Fragment set:html={html} />
   </article>
-  <a href="/essays" class="back-link">&larr; All Essays</a>
+  <a href="/journal" class="back-link">&larr; All Journal Entries</a>
 </Base>
