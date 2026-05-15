@@ -2,10 +2,9 @@
 interface Props {
   title: string;
   description?: string;
-  splash?: boolean;
 }
 
-const { title, description = 'Writing about complex trauma, family dynamics, and finding your own truth.', splash = false } = Astro.props;
+const { title, description = 'Writing about complex trauma, family dynamics, and finding your own truth.' } = Astro.props;
 const siteTitle = 'The Scapegoat Daughter';
 ---
 
@@ -29,34 +28,30 @@ const siteTitle = 'The Scapegoat Daughter';
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
-
-    <style>
-      @import '../styles/global.css';
-    </style>
   </head>
   <body>
-    {!splash && (
-      <header class="site-header">
-        <div class="container">
-          <a href="/" class="site-title">{siteTitle}</a>
-          <nav class="site-nav">
-            <a href="/journal">Journal</a>
-            <a href="/about">About</a>
-          </nav>
-        </div>
-      </header>
-    )}
+    <header class="site-header">
+      <div class="container">
+        <a href="/" class="site-title">{siteTitle}</a>
+        <nav class="site-nav">
+          <a href="/">Journal</a>
+          <a href="/about">About</a>
+        </nav>
+      </div>
+    </header>
 
-    <main class={splash ? '' : 'container'}>
+    <main class="container">
       <slot />
     </main>
 
-    {!splash && (
-      <footer class="site-footer">
-        <div class="container">
-          &copy; {new Date().getFullYear()} {siteTitle}
-        </div>
-      </footer>
-    )}
+    <footer class="site-footer">
+      <div class="container">
+        &copy; {new Date().getFullYear()} {siteTitle}
+      </div>
+    </footer>
   </body>
 </html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>

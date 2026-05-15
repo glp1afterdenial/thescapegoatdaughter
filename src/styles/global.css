@@ -52,7 +52,7 @@ body {
   width: 100%;
 }
 
-/* === Header (inner pages only) === */
+/* === Header === */
 .site-header {
   padding: 2.5rem 0 1.5rem;
   margin-bottom: 3rem;
@@ -72,6 +72,7 @@ body {
   color: var(--text-muted);
   text-decoration: none;
   letter-spacing: 0.02em;
+  border-bottom: none;
   transition: color 0.3s ease;
 }
 
@@ -91,6 +92,7 @@ body {
   color: var(--text-muted);
   letter-spacing: 0.18em;
   text-transform: uppercase;
+  border-bottom: none;
   transition: color 0.3s ease;
 }
 
@@ -154,64 +156,27 @@ a:hover {
   border-bottom-color: var(--accent-hover);
 }
 
-/* === Splash / Homepage === */
-.splash {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+/* === Homepage === */
+.home-intro {
   text-align: center;
-  padding: 2rem;
+  margin-bottom: 3.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
 }
 
-.splash-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 3.2rem;
+.home-title {
+  font-size: 2.6rem;
   font-weight: 300;
   font-style: italic;
-  color: var(--text-bright);
   letter-spacing: -0.02em;
-  line-height: 1.15;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-.splash-line {
-  width: 50px;
-  height: 1px;
-  background: var(--accent);
-  margin: 0 auto 1.5rem;
-  opacity: 0.5;
-}
-
-.splash-tagline {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.05rem;
+.home-tagline {
+  font-size: 1rem;
   color: var(--text-muted);
   font-style: italic;
-  line-height: 1.7;
-  max-width: 360px;
-  margin-bottom: 3rem;
-}
-
-.splash-enter {
-  font-family: 'Outfit', system-ui, sans-serif;
-  font-size: 0.6rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--accent);
-  text-decoration: none;
-  border: 1px solid var(--accent);
-  border-radius: 0;
-  padding: 0.85rem 2.5rem;
-  transition: all 0.3s ease;
-  border-bottom: 1px solid var(--accent);
-}
-
-.splash-enter:hover {
-  background: var(--accent);
-  color: var(--bg);
-  border-bottom-color: var(--accent);
+  margin-bottom: 0;
 }
 
 /* === Prose (post content) === */
@@ -368,23 +333,14 @@ a:hover {
   line-height: 1.9;
 }
 
-/* === Page Title === */
-.page-title {
-  font-style: italic;
-  font-weight: 300;
-  margin-bottom: 2.5rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--border);
-}
-
 /* === Responsive === */
 @media (max-width: 480px) {
   html {
     font-size: 17px;
   }
 
-  .splash-title {
-    font-size: 2.4rem;
+  .home-title {
+    font-size: 2rem;
   }
 
   .site-header .container {
